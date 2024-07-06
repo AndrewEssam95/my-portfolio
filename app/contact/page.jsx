@@ -47,10 +47,10 @@ const ContactPage = () => {
             <form className="flex flex-col gap-6 p-10 bg-[#000019] rounded-xl">
               <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                esse delectus consectetur dicta, voluptatem facere saepe culpa
-                debitis harum, et neque soluta itaque alias ipsam quidem ullam
-                voluptatum similique eaque.
+                I'm always excited to connect and collaborate on new projects!
+                Whether you have a question, a project idea, or just want to say
+                hello, feel free to reach out. Let's create something amazing
+                together.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstname" placeholder="First Name" />

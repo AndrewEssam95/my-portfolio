@@ -19,8 +19,9 @@ const NavBar = ({ flexCol = false }) => {
         <Link
           key={index}
           href={page.path}
-          className={`capitalize transition-all hover:text-accent ${
-            pathName === page.path && `border-b-2 border-accent text-accent`
+          className={`capitalize transition-all dark:hover:text-accent-hover hover:text-primary/50 ${
+            pathName === page.path &&
+            `border-b-2 bg:border-accent border-primary dark:border-accent text-primary dark:text-accent`
           }`}>
           {page.title}
         </Link>

@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
 const about = {
   title: "About Me",
   description:
-    "loremsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "I'm a Front-End Developer with a year of experience and a burning passion for programming. I love turning ideas into dynamic web and mobile applications. My curiosity drives me to constantly learn and explore new technologies. I thrive on creating visually appealing and user-friendly digital experiences. My goal is to grow, innovate, and succeed in my career by taking on exciting new projects.Thanks for visiting my portfolio. I'm excited to share my work and look forward to potential collaborations and feedback.",
   info: [
     { fieldName: "Name", fieldValue: "Andrew Essam" },
     { fieldName: "Phone", fieldValue: "+20 128 670 9285" },
@@ -35,16 +35,15 @@ const about = {
 const experience = {
   icon: "",
   title: "My Experience",
-  description:
-    "loremsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-  items: [{ company: "FPI", position: "Slaes an", duration: "3 years" }],
+  description: "",
+  // items: [{ company: "FPI", position: "Slaes an", duration: "3 years" }],
+  items: [],
 };
 
 const education = {
   icon: "",
   title: "My Education",
-  description:
-    "loremsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  description: "",
   items: [
     {
       institution: "Ain Shams University",
@@ -56,8 +55,7 @@ const education = {
 
 const skills = {
   title: "My Skills",
-  description:
-    "loremsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  description: "",
   skillsList: [
     { name: "HTML 5", icon: <FaHtml5 /> },
     { name: "CSS 3", icon: <FaCss3 /> },
@@ -99,26 +97,28 @@ const ResumePage = () => {
                 </p>
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                    {experience.items.length
-                      ? experience.items.map((item, index) => {
-                          return (
-                            <li
-                              key={index}
-                              className="bg-[#000017] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap=1">
-                              <span className="text-accent">
-                                {item.duration}
-                              </span>
-                              <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                                {item.position}
-                              </h3>
-                              <div className="flex items-center gap-3">
-                                <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                <p className="text-wrap/60">{item.company}</p>
-                              </div>
-                            </li>
-                          );
-                        })
-                      : "There is no professional experience yet."}
+                    {experience.items.length ? (
+                      experience.items.map((item, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className="bg-[#000017] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                            <span className="text-accent">{item.duration}</span>
+                            <h3 className="text-accent text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                              {item.position}
+                            </h3>
+                            <div className="flex items-center gap-3">
+                              <span className="w-[6px] h-[6px] rounded-full bg-accent" />
+                              <p className="text-white/60">{item.company}</p>
+                            </div>
+                          </li>
+                        );
+                      })
+                    ) : (
+                      <p className="text-nowrap text-xl text-primary dark:text-white/60">
+                        There is no professional experience yet.
+                      </p>
+                    )}
                   </ul>
                 </ScrollArea>
               </div>
@@ -135,16 +135,16 @@ const ResumePage = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#000017] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap=1">
-                          <span className="text-accent">
+                          className="bg-[#000017] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                          <span className="text-accent ">
                             {item.institution}
                           </span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                          <h3 className="text-lg max-w-[260px] min-h-[60px] text-center lg:text-left text-white/60">
                             {item.degree}
                           </h3>
                           <div className="flex items-center gap-3">
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-wrap/60">{item.duration}</p>
+                            <p className="text-white/60">{item.duration}</p>
                           </div>
                         </li>
                       );
@@ -167,7 +167,7 @@ const ResumePage = () => {
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="w-full h-[120px] bg-[#000019] rounded-xl flex justify-center items-center group">
+                            <TooltipTrigger className="w-full h-[120px] dark:bg-[#000019] bg-primary rounded-xl flex justify-center items-center group text-white">
                               <div className="text-6xl group-hover:text-accent transition-all duration-300">
                                 {skill.icon}
                               </div>
@@ -188,7 +188,7 @@ const ResumePage = () => {
               className="w-full text-center xl:text-left">
               <div className="flex flex-col gap-[30px] text-wrap">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="text-white/60 mx-auto xl:mx-0">
+                <p className="dark:text-white/60 text-gray-700 mx-auto xl:mx-0">
                   {about.description}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[750px] gap-x-12 mx-auto xl:mx-0">
@@ -197,7 +197,9 @@ const ResumePage = () => {
                       <li
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-4">
-                        <span className="text-white/60">{item.fieldName}</span>
+                        <span className="dark:text-white/60 text-gray-700 ">
+                          {item.fieldName}
+                        </span>
                         <span className="text-lg">{item.fieldValue}</span>
                       </li>
                     );

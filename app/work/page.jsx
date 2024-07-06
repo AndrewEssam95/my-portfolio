@@ -96,7 +96,7 @@ const WorkPage = () => {
               <div className="text-8xl leading-none font-extrabold">
                 {projects[currentIndex].num}
               </div>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold leading-none dark:text-white text-primary group-hover:text-accent transition-all duration-500 capitalize">
                 {projects[currentIndex].category} project
               </h2>
               <p className="text-white/60">
@@ -105,7 +105,9 @@ const WorkPage = () => {
               <ul className="flex gap-4">
                 {projects[currentIndex].stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
+                    <li
+                      key={index}
+                      className="text-xl text-[#ee6723] dark:text-accent">
                       {`${item}${
                         index !== projects[currentIndex].stack.length - 1
                           ? ","
@@ -120,7 +122,7 @@ const WorkPage = () => {
                 <Link href={projects[currentIndex].live}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full dark:bg-white/5 bg-primary hover:bg-[#000021] flex justify-center items-center group">
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
@@ -132,7 +134,7 @@ const WorkPage = () => {
                 <Link href={projects[currentIndex].github}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full dark:bg-white/5 bg-primary hover:bg-[#000021] flex justify-center items-center group">
                         <BsGithub className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
@@ -156,12 +158,12 @@ const WorkPage = () => {
             <div className="flex gap-2 w-full justify-between xl:justify-end xl:w-full absolute top-[calc(50%-22px)] xl:top-[90%]">
               <button
                 onClick={handlePreviousSlide}
-                className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
+                className="dark:bg-accent dark:hover:bg-accent-hover bg-primary hover:bg-[#000021] text-accent dark:text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
                 <PiCaretLeftBold />
               </button>
               <button
                 onClick={handleNextSlide}
-                className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
+                className="dark:bg-accent dark:hover:bg-accent-hover dark:text-primary bg-primary hover:bg-[#000021] text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
                 <PiCaretRightBold />
               </button>
             </div>

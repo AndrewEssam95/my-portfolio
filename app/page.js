@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FiDownload, FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
@@ -19,16 +18,14 @@ const App = () => {
         <h1 className="h1 mb-6">
           Hello I&apos;m
           <br />
-          <span className="text-accent">
-            Andrew Essam<span className="text-red-500">(DODO)</span>
-          </span>
+          <span className="text-[#ee6723] dark:text-accent">Andrew Essam</span>
         </h1>
-        <p className="max-w-[500px] mb-9 text-white/80">
+        {/* <p className="max-w-[500px] mb-9 text-white/80">
           Andrew Essam Andrew Essam Andrew Essam Andrew Essam Andrew Essam
           Andrew Essam Andrew Essam
-        </p>
+        </p> */}
         <div className="flex flex-col xl:flex-row gap-6 items-center">
-          <button className="outline-none border border-accent rounded-full flex justify-between items-center text-accent px-5 py-2 hover:bg-accent hover:text-primary gap-2">
+          <button className="outline-none border rounded-full flex justify-between items-center px-5 py-2 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary gap-2">
             <span>Download CV</span>
             <FiDownload className="text-xl" />
           </button>
@@ -38,7 +35,7 @@ const App = () => {
                 <Link
                   key={index}
                   href={social.path}
-                  className="w-9 h-9 border rounded-full border-accent text-accent flex justify-center items-center hover:bg-accent hover:text-primary hover:transition-all duration-500">
+                  className="w-9 h-9 border rounded-full flex justify-center items-center hover:transition-all duration-500 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary">
                   {social.icon}
                 </Link>
               );
