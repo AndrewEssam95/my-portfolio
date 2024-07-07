@@ -18,7 +18,9 @@ const App = () => {
         <h1 className="h1 mb-6">
           Hello I&apos;m
           <br />
-          <span className="text-[#ee6723] dark:text-accent">Andrew Essam</span>
+          <span className="text-[#ee6723] dark:text-accent">
+            Andrew Essam DOOOOOOODO
+          </span>
         </h1>
         {/* <p className="max-w-[500px] mb-9 text-white/80">
           Andrew Essam Andrew Essam Andrew Essam Andrew Essam Andrew Essam
