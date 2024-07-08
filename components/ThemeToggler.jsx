@@ -9,7 +9,11 @@ const ThemeToggler = () => {
 
   useEffect(() => {
     const currentTheme = localStorage.getItem("theme");
-    currentTheme === "dark" ? setDarkMode(true) : setDarkMode(false);
+    if (currentTheme) {
+      currentTheme === "dark" ? setDarkMode(true) : setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
   }, []);
 
   useEffect(() => {
