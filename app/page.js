@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FiDownload, FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
 import Photo from "@/components/Photo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const socials = [
   { icon: <FiGithub />, path: "https://github.com/AndrewEssam95" },
@@ -12,31 +12,7 @@ const socials = [
 ];
 
 const App = () => {
-  useEffect(() => {
-    fetch("/public/Andrew Essam V1.0.pdf", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/pdf",
-      },
-    })
-      .then((response) => response.blob())
-      .then((blob) => {
-        // Create blob link to download
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", `Andrew Essam V1.0 CV.pdf`);
-
-        // Append to html link element page
-        document.body.appendChild(link);
-
-        // Start download
-        link.click();
-
-        // Clean up and remove the link
-        link.parentNode.removeChild(link);
-      });
-  }, []);
+  const [clicked, setClicked] = useState(false);
 
   return (
     <section className="container mx-auto h-full flex flex-col xl:flex-row justify-between items-center gap-8 xl:gap-30 mb-6">
@@ -53,9 +29,12 @@ const App = () => {
         </p> */}
         <div className="flex flex-col xl:flex-row gap-6 items-center">
           <Link
+            onClick={() => {
+              setClicked(true);
+            }}
             target="_blank"
             href="/Andrew Essam V1.0.pdf"
-            download
+            download={clicked}
             className="outline-none border rounded-full flex justify-between items-center px-5 py-2 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary gap-2">
             <span>Download CV</span>
             <FiDownload className="text-xl" />
