@@ -1,16 +1,43 @@
+"use client";
+
 import Link from "next/link";
 import { FiDownload, FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
 import Photo from "@/components/Photo";
+import { useEffect } from "react";
 
 const socials = [
-  { icon: <FiGithub />, path: "" },
-  { icon: <FiLinkedin />, path: "" },
-  { icon: <FiFacebook />, path: "" },
-  { icon: <FaXTwitter />, path: "" },
+  { icon: <FiGithub />, path: "https://github.com/AndrewEssam95" },
+  { icon: <FiLinkedin />, path: "https://www.linkedin.com/in/andrewessam95/" },
+  { icon: <FiFacebook />, path: "https://www.facebook.com/andrew.essam95/" },
 ];
 
 const App = () => {
+  useEffect(() => {
+    fetch("/public/Andrew Essam V1.0.pdf", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/pdf",
+      },
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create blob link to download
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `Andrew Essam V1.0 CV.pdf`);
+
+        // Append to html link element page
+        document.body.appendChild(link);
+
+        // Start download
+        link.click();
+
+        // Clean up and remove the link
+        link.parentNode.removeChild(link);
+      });
+  }, []);
+
   return (
     <section className="container mx-auto h-full flex flex-col xl:flex-row justify-between items-center gap-8 xl:gap-30 mb-6">
       <div className="order-2 xl:order-none text-center xl:text-left">
@@ -25,14 +52,19 @@ const App = () => {
           Andrew Essam Andrew Essam
         </p> */}
         <div className="flex flex-col xl:flex-row gap-6 items-center">
-          <button className="outline-none border rounded-full flex justify-between items-center px-5 py-2 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary gap-2">
+          <Link
+            target="_blank"
+            href="/Andrew Essam V1.0.pdf"
+            download
+            className="outline-none border rounded-full flex justify-between items-center px-5 py-2 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary gap-2">
             <span>Download CV</span>
             <FiDownload className="text-xl" />
-          </button>
+          </Link>
           <div className="flex gap-2 items-center">
             {socials.map((social, index) => {
               return (
                 <Link
+                  target="_blank"
                   key={index}
                   href={social.path}
                   className="w-9 h-9 border rounded-full flex justify-center items-center hover:transition-all duration-500 border-primary text-primary hover:bg-primary hover:text-accent dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-primary">
